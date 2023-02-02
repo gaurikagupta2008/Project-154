@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <script src="https://cdn.rawgit.com/zcanter/aframe-gradient-sky/master/dist/gradientsky.min.js"></script>
+    <!-- IMPORTED COMPONENTS -->    
+    <script src="./Rotation.js"></script>
+    <script src="./Fish.js"></script>
+    <script src="./Coin.js"></script>
+    <!--<script src="./Game.js"></script>-->
+    
+  </head>
+  <body>
+    <a-scene >
+      <!---Assets-->
+      <a-a-assets>
+        <a-asset-item id="island" src="assets/island/scene.gltf"></a-asset-item>
+        <a-asset-item
+          id="treasure"
+          src="assets/treasure/model.gltf"
+        ></a-asset-item>
+        <a-asset-item
+          id="fishmodel"
+          src="assets/fish/scene.gltf"
+        ></a-asset-item>
+        <a-asset-item id="turtle" src="assets/turtle/scene.gltf"></a-asset-item>        
+        <a-asset-item
+          id="scuba_driver"
+          src="assets/scuba_driver/scene.gltf"
+        ></a-asset-item>
+        
+      </a-a-assets>
+
+      <!-- Sky -->
+      <a-sky
+      color="grey"
+      >
+
+        <!--Island-->
+        <a-entity
+          gltf-model="#island"
+          scale="1 1 1"
+          position="0 -15 -40"
+          island-rotation-reader
+        ></a-entity>
+
+
+        <!--Treasure-->
+        <a-entity
+          gltf-model="#treasure"
+          scale="15 15 15"
+          position="-5 -28 -40"
+          rotation="0 90 0"
+          treasure-rotation-reader
+        ></a-entity>
+
+        <a-entity
+          gltf-model="#treasure"
+          scale="15 15 15"
+          position="5 -28 -40"
+          rotation="0 90 0"
+          treasure-rotation-reader
+        ></a-entity>
+       
+        <!--Turtle-->
+        <a-entity
+          gltf-model="#turtle"
+          scale="0.005 0.005 0.005"
+          position="0 -30 0"
+          rotation="0 90 0"
+        ></a-entity>
+
+        <!--Fish-->
+        <a-entity
+          id="fishmodel"
+          position="0 0 0"
+          scale="0.2 0.2 0.2"      
+        ></a-entity>
+
+        <!--Coin-->
+        <a-entity
+          id="coins"
+          position="0 0 0"
+          scale="0.2 0.2 0.2"  
+        ></a-entity>
+      </a-sky>
+
+      <!--Scuba Driver-->
+      <a-entity
+        gltf-model="#scuba_driver"
+        scale="0.1 0.1 0.1"
+        position="5 0 15"
+        rotation="0 90 -20"  
+        diver-rotation-reader 
+      >
+      </a-entity>
+
+      <a-cylinder color="#00009e" radius="100" opacity="0.2"></a-cylinder>
+
+      <!-- CAMERA -->
+      <a-entity
+        camera="active: true"
+        look-controls
+        position="0 10 25"
+      ></a-entity>
+    </a-scene>
+  </body>
+</html>
